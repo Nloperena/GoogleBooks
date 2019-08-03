@@ -1,16 +1,16 @@
 const router = require("express").Router();
 const booksController = require("../../controllers/booksController");
 
-// Matches with "/api/books"
-router.route("/")
+// searches for saved books
+router.route("/api/books")
   .get(booksController.findAll)
+//creates/posts a new book from mongo db
   .post(booksController.create);
-
-// Matches with "/api/books/:id"
-router
-  .route("/:id")
-  .get(booksController.findById)
-  .put(booksController.update)
+//deletes a book with a id
+router.route("/api/books/:id")
   .delete(booksController.remove);
 
+
+
 module.exports = router;
+
